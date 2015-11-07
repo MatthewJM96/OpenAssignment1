@@ -1,0 +1,30 @@
+{% from "_form_helpers.html" import render_column %}
+{% from "_form_helpers.html" import render_field %}
+
+<!-- Content -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Graphing Utility 1</h1>
+  <form class="form-style-10 wide relative clearfix" action="/graphing/plot" method="get">
+    <a class="button right" href="#plot">Jump To Plotting</a>
+    <h3>Data read from file:</h3>
+    {{ render_column(form.data.names)      }}
+    {{ render_column(form.data.type)       }}
+    {{ render_column(form.data.population) }}
+    {{ render_column(form.data.latitude)   }}
+    {{ render_column(form.data.longitude)  }}
+    <div class="section" id="plot">
+      <div class="section-header">
+        <span>Plotting:</span>
+      </div><br>
+      {{ render_field(form.params.data)}}
+      {{ render_field(form.params.type)}}
+      <div class="field">
+        <div class="field-body">
+          <span class="field-header">Population-Location 3D Hist Graph:</span>
+          <span class="clearfix"><input class="right" type="submit" value="Plot!"></span>
+        </div>
+    </div>
+  </form>
+{% endblock %}

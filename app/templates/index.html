@@ -1,0 +1,13 @@
+{% from "_form_helpers.html" import render_field %}
+
+<!-- Content -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to Location Graphing Utility 1!</h1>
+  <form class="form-style-10 clearfix" action="/graphing" method="post" name="graph-selection">
+    <h3>Please select a file of location data to graph.</h3>
+    {{ render_field(form.data) }}<br>
+    <span><input class="right" type="submit" value="Continue"></span>
+  </form>
+{% endblock %}
